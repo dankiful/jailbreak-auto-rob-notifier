@@ -21,14 +21,14 @@ while _G.Sendhook do
                 title = "Jailbreak Auto-Rob ".. _G.HookTimer.. " Second Notifier.",
                 fields = { -- thank to Cynical#0019 for re-design idea
                     {
-                        ["name"] = "`💸` Current Cash",
-                        ["value"] = "```".. currentcash.. "```",
-                        ["inline"] = true
+                        name = "`💸` Current Cash",
+                        value = "```".. currentcash.. "```",
+                        inline = true
                     },
                     {
-                        ["name"] = "`💢` Current Bounty",
-                        ["value"] = "```".. string.sub(bountytext,9) .. "```",
-                        ["inline"] = true
+                        name = "`💢` Current Bounty",
+                        value = "```".. string.sub(bountytext,9) .. "```",
+                        inline = true
                     },
                 },
                 url = "https://www.roblox.com/games/606849621/Jailbreak",
