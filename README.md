@@ -8,3 +8,10 @@
  <p align="center">
  <img src="https://img.shields.io/github/last-commit/3jm/jailbreak-auto-rob-notifier">
  </p>
+
+<h1 align="center">
+Media
+</h1>
+<h1 align="center">
+<img src="https://cdn.discordapp.com/attachments/995764976369279127/999911551114940496/unknown.png?size=4096">
+</h1>
