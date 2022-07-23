@@ -13,5 +13,5 @@
 Media
 </h1>
 <h1 align="center">
-<img src="https://cdn.discordapp.com/attachments/995764976369279127/999911551114940496/unknown.png?size=4096">
+<img src="https://cdn.discordapp.com/attachments/995764976369279127/1000309577348292628/unknown.png?size=4096">
 </h1>
