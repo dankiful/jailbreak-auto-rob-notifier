@@ -1,6 +1,12 @@
-_G.Sendhook = true -- to change this to false, open a new tab in synapse and just change the true to false
+--[[
+    Credits:
+        fayy#9999 - Base
+        Blind#2665 - Added more features
+        HKPlays#4587 - Helped add some features
+]]--
+
+_G.Sendhook = true
 _G.HookTimer = 900 -- 15 minutes
--- just use google's minute's to seconds converter, or hour idc all works the same
 
 local funny_table = {
     "-- -.-- / -. ..- - ... / .. - -.-. ....",
@@ -13,13 +19,17 @@ while _G.Sendhook do
     local webhook = "your webhook here"
     local bountytext = game:GetService("Players").LocalPlayer.PlayerGui.AppUI.Buttons.Bounty.Label.Text
     local currentcash = game:GetService("Players").LocalPlayer.PlayerGui.CashGui.Container.Content.ContainerTop.ContainerRight.ContainerCash.TextLabel.Text
-    -- string.sub(bountytext,9)
+    local currenTeam = tostring(game:GetService("Players").LocalPlayer.Team)
+    local currentLevel = tostring(game:GetService("Players").LocalPlayer.Level.Value)
+    local currentEXP = tostring(game:GetService("Players").LocalPlayer.Exp.Value)
+    local lplr_name = game:GetService("Players").LocalPlayer.Name
     local data = {
         content = "",
         embeds = {
             {
-                title = "Jailbreak Auto-Rob ".. _G.HookTimer.. " Second Notifier.",
-                fields = { -- thank to Cynical#0019 for re-design idea
+                title = "Jailbreak Auto-Rob Notifier.",
+                description = "Current logged in user: `".. lplr_name .. "`",
+                fields = {
                     {
                         name = "`💸` Current Cash",
                         value = "```".. currentcash.. "```",
@@ -30,12 +40,19 @@ while _G.Sendhook do
                         value = "```".. string.sub(bountytext,9) .. "```",
                         inline = true
                     },
+                    {
+                        name = "`🎭` Current Team",
+                        value = "```".. currenTeam .. "```",
+                        inline = true
+                    },
+                    {
+                        name = "`🆙` Current Level & EXP",
+                        value = "```".. currentLevel .. " (".. currentEXP .. ")```",
+                        inline = true
+                    },
                 },
                 url = "https://www.roblox.com/games/606849621/Jailbreak",
-                color = tonumber(0x00ccff),
-                footer = {
-                    text = "\"We got them same guns they send off to Russia\" - Gucci Mane."
-               }
+                color = nil,
            }
        },
        username = funny_table[math.random( #funny_table )],
@@ -50,5 +67,9 @@ while _G.Sendhook do
     request = http_request or request or HttpPost or syn.request
     local webhook_data = {Url = webhook, Body = newdata, Method = "POST", Headers = headers}
     request(webhook_data)
-    wait(900)
+    require(game:GetService("ReplicatedStorage").Game.Notification).new({
+        Text = "Sent Webhook, check your discord!\nBlind#2665, fayy#9999 & HKPlays#4587",
+        Duration = 10
+    })
+    wait(_G.HookTimer)
 end
